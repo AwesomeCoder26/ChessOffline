@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .resetButton {
+            position: relative;
+            background: transparent;
+            color: rgb(209, 0, 0);
+            margin-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 7px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: 'Iceland',cursive;
+            font-size: larger;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 13px;
+            z-index: 2;
+            transition: 0.35s;
+        }
+
+        .resetButton:hover {
+            color: white;
+        }
+
+        .resetButton span{
+            position: absolute;
+        }
+
+        .resetButton span:nth-child(1){
+            background-color: rgb(209, 0, 0);
+            width: 100%;
+            height: 0;
+            left: 0;
+            top: 0;
+            transition: 0.45s;
+            z-index: -1;
+        }
+
+        .resetButton:hover span:nth-child(1){
+            height: 100%;
+        }
+
+        .resetButton:active{
+            opacity: 0.7s
+        }
+
+        .resetButton:active span:nth-child(1){
+            opacity:0.7s;
+        }
+        
+        .whiteCapturedPieces {
+            width: 400px;
+            height: 300px;
+            margin-top: 50px;
+        }
+
+        .blackCapturedPieces {
+            margin-top: 100px;
+            width: 320px;
+            height: 300px;
+        }
+
+        .playerName{
+            font-family: 'Iceland', cursive;
+            margin-left: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <button class="resetButton" onclick="refreshPage()"><span></span>Reset</button>
+    <div class="whiteCapturedPieces" id="whiteCapturedPieces"><h2 style = "color:black;" class = "playerName" id = "blackName"></h2></div>
+    <div class="blackCapturedPieces" id="blackCapturedPieces"><h2 style = "color: rgb(207, 207, 0);" class = "playerName" id = "whiteName"></h2></div>
+    <canvas></canvas>
+
+
+
+    <!--Classes-->
+    <script src="./Classes/Tile.js"></script>
+    <script src="./Classes/Piece.js"></script>
+
+    <script src="./script.js"></script>
+    <script src="./board.js"></script>
+
+
+
+    <!--Refresh page script-->
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
